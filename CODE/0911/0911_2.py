@@ -46,6 +46,7 @@ for num in range(1, 10):
     for i in range(1, 10):
         print(f'{num} * {i} = {num * i}')
     print() # 단수마다 한 줄씩 띄고
+    print("========")
 
 # 리스트와 for문
 # 리스트
@@ -74,15 +75,16 @@ for score in scores:
 
 print("총점:",total)
 print("평균:",total / count)
-
 print("=========")
+
 word = "python"
 for char in word:
-    print(char, end='')
+    print(char)
 
 # 중첩 for문 - 반복 속의 반복
 # 별 패턴 1: 직각삼각형
 
+print("=========")
 for i in range(1, 6):
     for j in range(i):
         print("*", end='')
@@ -96,3 +98,4 @@ for i in range(1, 6):
         print("*", end='')
     print()
 print("=========")
+
