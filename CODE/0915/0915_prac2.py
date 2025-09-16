@@ -11,13 +11,16 @@ print(f"제출자 명단: {sub}")
 user1 = {'SF', 'Action', 'Drama'}
 user2 = {'Drama', 'Romance', 'Action'}
 
-print(f'공통 관심 장르: {user1.intersection(user2)}')
-print(f'서로 다른 장르: {user1.symmetric_difference(user2)}')
-print(f'전체 장르: {user1.union(user2)}')
+# 교집합
+print(f'공통 관심 장르: {user1.intersection(user2)}') # user1 & user2
+# 대칭차집합
+print(f'서로 다른 장르: {user1.symmetric_difference(user2)}') # user1 ^ user2
+# 합집합
+print(f'전체 장르: {user1.union(user2)}') # user1 | user2
 
 # 문제 3. 부분집합 관계 판단
 
 my_certificates = {'SQL', 'Python', 'Linux'}
 job_required = {'SQL', 'Python'}
 
-print(f"지원 자격 충족 여부: {my_certificates.issuperset(job_required)}")
+print(f"지원 자격 충족 여부: {my_certificates.issuperset(job_required)}") # my_certificates >= job_required
