@@ -115,3 +115,25 @@ while i < 15:
     i += 1
 else:
     print('정상 종료 되었습니다.')
+
+# 이중 for문 - 구구단
+print()
+print('====== 이중 for문 =======')
+for i in range(2, 10):
+    print(f'=== {i}단 ===')
+    for j in range(1, 10):
+        print(f'{i} X {j} = {i * j}')
+
+print('====== 이중 while문 =======')
+
+i = 2 # 초기값
+
+while i < 10:
+    j = 1
+    print(f'=== {i}단 ===')
+    while j < 10:
+        print(f'{i} X {j} = {i * j}')
+        j += 1 # 수 증가
+    print()
+    i += 1 # 단 증가
+
