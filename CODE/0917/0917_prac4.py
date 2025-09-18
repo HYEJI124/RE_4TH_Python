@@ -1,23 +1,35 @@
-# # 실습 1. while문 연습문제
-# # 문제 1. 비밀 코드 맞추기(2)
+# 실습 1. while문 연습문제
+# 문제 1. 비밀 코드 맞추기(2)
 
-# # 변수 secret_code에는 “codingonre3”라는 문자열이 저장되어 있습니다.
-# # 사용자에게 "비밀 코드를 입력하세요:" 라고 안내 문구를 출력합니다.
-# # 정답이 맞을 때까지 계속 입력을 받습니다.
-# # 사용자의 입력이 정답과 일치하면 "입장 완료! 환영합니다."를 출력하고 break로 루프를 종료하세요.
-# # 정답이 틀렸다면 "비밀 코드가 틀렸습니다. 다시 시도하세요."를 출력한 후 루프를 계속 진행합니다.
+# 변수 secret_code에는 “codingonre3”라는 문자열이 저장되어 있습니다.
+# 사용자에게 "비밀 코드를 입력하세요:" 라고 안내 문구를 출력합니다.
+# 정답이 맞을 때까지 계속 입력을 받습니다.
+# 사용자의 입력이 정답과 일치하면 "입장 완료! 환영합니다."를 출력하고 break로 루프를 종료하세요.
+# 정답이 틀렸다면 "비밀 코드가 틀렸습니다. 다시 시도하세요."를 출력한 후 루프를 계속 진행합니다.
 
-# secret_code = "codingonre3"
-# code = input('비밀 코드를 입력하세요:')
+secret_code = "codingonre3"
+code = input('비밀 코드를 입력하세요:')
 
-# while True:
-#     if secret_code == code:        
-#         break
-#     else:
-#         print("비밀 코드가 틀렸습니다. 다시 시도하세요.")
-#         code = input('비밀 코드를 입력하세요:')
+while True:
+    if secret_code == code:        
+        break
+    else:
+        print("비밀 코드가 틀렸습니다. 다시 시도하세요.")
+        code = input('비밀 코드를 입력하세요:')
 
-# print("입장 완료! 환영합니다.")
+print("입장 완료! 환영합니다.")
+
+# 리더님 방법
+secret_code = "codingonre3"
+code = ""
+
+while code != secret_code:
+    code = input('비밀 코드를 입력하세요:')
+    if code == secret_code:
+        print("입장 완료! 환영합니다.")
+        break
+    else:
+        print("비밀 코드가 틀렸습니다. 다시 시도하세요.")
 
 # 문제 2. 유효한 나이만 평균 내기
 # 변수 times는 유효한 입력의 개수를 셉니다.
@@ -37,3 +49,19 @@ while times < 5:
         times += 1
 
 print(f"총 나이 합계는 {sum_age},평균은 {sum_age / times}")
+
+# 리더님 방법
+
+times = 0
+sum_age = 0
+
+while times < 5:
+    age = int(input('나이를 입력하세요:'))
+    if 0 < age <= 120:
+        sum_age += age
+        times += 1
+    else:
+        print('잘못된 나이입니다. 다시 입력해주세요.')
+
+avg = sum_age / 5
+print(f"총 나이 합계는 {sum_age},평균은 {avg:.0f}")
