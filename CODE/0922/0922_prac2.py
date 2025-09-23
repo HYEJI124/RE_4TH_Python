@@ -32,7 +32,37 @@ print('비밀번호 일치 여부: ', user1.check_password('admin123'))
 
 user1.change_password('admin123', 'admin12345')
 
-            
+# 리더님 방법
+
+class UserAccount:
+    def __init__(self, username, password):
+        self.username = username # public 변수
+        self.__password = password # private 변수
+
+    def change_password(self, old_pw, new_pw):
+        '''
+            현재 비밀번호 old_pw와 같으면 비밀번호 변경 허용,
+            틀리면 "비밀번호 불일치" 출력
+        '''
+        if self.__password == old_pw:
+            self.__password = new_pw
+            print('비밀번호가 성공적으로 변경되었습니다.')
+        else:
+            print('비밀번호 불일치')
+
+    def check_password(self, password):
+        '''
+            비밀번호 일치 여부를 반환(True/False)
+        '''
+        return self.__password == password
+    
+
+user1 = UserAccount('ethan', '1234')
+
+print(user1.check_password('1234'))
+user1.change_password('1234', '2345')
+print(user1.check_password('1234'))
+
 
 # 실습3. 접근 제어와 정보은닉 연습
 # 문제 2. Student 클래스: 성적 검증(@property 사용)
@@ -65,4 +95,44 @@ print(f'{student1.name}님의 점수: {student1.score}')
 student2 = Student('이영희')
 student1.score = 120
 
+# 리더님 방법
+class Student:
+    def __init__(self, score = 0):
+        self.__score = score
 
+    def get_score(self):
+        return self.__score
+    
+    def set_score(self, score):
+        if 0 <= score <= 100:
+            self.__score = score
+        else:
+            raise ValueError('점수는 0이상 100이하만 허용됩니다.')
+    
+s1 = Student(90)
+print(s1.get_score())
+s1.set_score(80)
+print(s1.get_score())
+# s1.set_score(120)
+# print(s1.get_score())
+
+class Student:
+    def __init__(self, score = 0):
+        self.__score = score
+
+    @property
+    def score(self):
+        return self.__score
+    
+    @score.setter
+    def score(self, value):
+        if 0 <= value <= 100:
+            self.__score = value
+        else:
+            raise ValueError('점수는 0이상 100이하만 허용됩니다.')
+
+s1 = Student(90)       
+print(s1.score)
+s1.score = 80
+print(s1.score)
+s1.score = 120
