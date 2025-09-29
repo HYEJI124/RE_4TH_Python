@@ -60,7 +60,7 @@ import random
 rsp = ['가위', '바위', '보']
 computer = random.choice(rsp)
 
-user = input('가위, 바위, 보 중 하나르 입력하세요: ')
+user = input('가위, 바위, 보 중 하나를 입력하세요: ')
 
 print(f'컴퓨터: {computer}, 사용자: {user}')
 
@@ -96,22 +96,21 @@ else:
 # 요구 사항
 # • 날짜 연산에는 반드시 datetime 모듈을 사용할 것.
 
-from  datetime import datetime, timedelta
+import datetime
 
-birthday = input('생일(MM-DD)을 입력하세요: ')
+birthday = input('생일(MM-DD)을 입력하세요: ').split('-')
+month = int(birthday[0])
+day = int(birthday[1])
 
-today = datetime.today()
-current_year = today.year
+birthday = datetime.date(2025, month, day)
+today = datetime.date.today()
 
-this_year_birthday = datetime.strftime(f'{current_year} - {birthday}', '%Y-%m')
+if birthday < today:
+    birthday = datetime.date(2026, month, day)
 
-if this_year_birthday < today:
-    birthday_next = datetime.strftime(f'{current_year + 1} - {birthday}', '%Y-%m')
-    remaining_days = (birthday_next - today).days
-else:
-    remaining_days = (this_year_birthday - today).days
+remaining_days = birthday - today
 
-print(f'다음 생일까지 {remaining_days}일 남았습니다.')
+print(f'다음 생일까지 {remaining_days} 남았습니다.')
 
 # 실습6. 타자 연습 게임 만들기
 # 문제 설명
@@ -127,8 +126,7 @@ print(f'다음 생일까지 {remaining_days}일 남았습니다.')
 # 4. 문제마다 번호가 함께 출력
 # 5. 통과/오타 메시지, 총 타자 시간까지 출력
 
-import random
-import time
+import random, time
 
 words = [
     'apple', 'banana', 'cherry', 'melon', 'orange',
@@ -136,29 +134,24 @@ words = [
     'user', 'input', 'output', 'module', 'package'
 ]
 
-ent = input('[타자 게임] 준비되면 엔터!')
+input('[타자 게임] 준비되면 엔터!')
 
-if ent == '':
+start_time = time.time()
+correct_cnt = 0
+num = 1
 
-    start_time = time.time()
-
-    for i in range(1, 11):
-        print(f'문제 {i}')
-        question = random.choice(words)
-        answer = input('')
-
-        while True:
-            if answer != question:
-                answer = input('오타! 다시 도전! :')
-            else:
-                print(question)
-                print(answer)
-                print('통과!')
-                break
-
-    end_time = time.time()
-
-    print(f'타자 시간: {end_time - start_time}초')
+while correct_cnt < 10:
+        print(f'문제 {num}번')
+        random_word = random.choice(words)
+        print(random_word)
+        while (random_word != input()):
+            print('오타! 다시 도전!')
+        else:
+            print('통과!')
+            correct_cnt += 1
+            num += 1
+else:
+    print(f'타자 시간: {round(time.time() - start_time, 2)}초')
 
 print('[타자 게임] 종료')
 
