@@ -13,17 +13,39 @@ print('flattened 결과: ', flattened)
 print()
 
 arr[0,0] = 999
-print('raveled 결과: ', raveled)
-print('flattened 결과: ', flattened)
+print('raveled 결과: ', raveled) # ravel은 원본과 연결 -> 같이 변환
+print('flattened 결과: ', flattened) # flatten은 복사본 -> 그대로 유지
 print()
 
-# 2. 크기가 32x32인 이미지 데이터를 가정하고, 이 배열에 대해 expand_dims를 사용하여
-# shape (1, 32, 32)로 바꾸는 코드를 작성하세요.
+'''
+    리더님 방법
+    arr = np.array([[10, 20], [30, 40], [50, 60]])
+
+    # 1차원 변환
+    r1 = arr.ravel()
+    f1 = arr.flatten()
+    print('ravel: ', r1)
+    print('flatten: ', f1)
+
+    arr[0, 0] = 999
+    print('ravel: ', r1)
+    print('flatten: ', f1)
+'''
+
+# 2. 크기가 32x32인 이미지 데이터를 가정하고, 이 배열에 대해 expand_dims를 사용하여 shape (1, 32, 32)로 바꾸는 코드를 작성하세요.
 img = np.random.rand(32, 32)
 img_expanded = np.expand_dims(img, axis=0)
 print('shape (1, 32, 32)로 바꾼 결과: \n', img_expanded)
 print('모양: \n', img_expanded.shape)
 print()
+
+'''
+    리더님 방법
+    img = np.random.rand(32, 32)
+    img_expanded = np.expand_dims(img, axis=0)
+    print('img_expanded', img_expanded)
+    print('img_expanded', img_expanded.shape)
+'''
 
 # 3. 아래 배열에서 불필요한 1차원을 모두 제거하여 shape이 (28, 28)이 되도록 만드세요.
 img = np.random.randint(0, 255, (1, 28, 28, 1))
@@ -31,6 +53,14 @@ img_squeeze = np.squeeze(img)
 print('shape (28, 28)로 바꾼 결과: \n', img_squeeze)
 print('모양: \n', img_squeeze.shape)
 print()
+
+'''
+    리더님 방법
+    img = np.random.randint(0, 255, (1, 28, 28, 1))
+    img_squeezed = np.squeeze(img, axis=None) or
+    img_squeezed = np.squeeze(img)
+    print('img_squeezed', img_squeezed.shape) 
+'''
 
 # 4. 아래 2차원 배열을 1) 1차원 배열로 만든 후 2) 중복값을 제거한 뒤 shape (1, n)으로 재구성하세요.
 arr = np.array([[3, 1, 2, 2], [1, 2, 3, 1], [2, 2, 1, 4]])
@@ -40,6 +70,29 @@ reshape = uniq.reshape(1, -1)
 print('중복값 제거 후 shape(1, n): \n', reshape)
 print('모양: \n', reshape.shape)
 print()
+
+'''
+    리더님 방법
+    arr = np.array([
+    [3, 1, 2, 2],
+    [1, 2, 3, 1],
+    [2, 2, 1, 4]])
+
+    # 평탄화 => 1차원 변환
+    flat = arr.flatten()
+
+    # 중복 제거
+    unique = np.unique(flat)
+
+    # (1, n) 형태로 변환
+    reshaped = unique.reshape(1, -1)
+
+    print('원본', arr)
+    print('1차원', flat)
+    print('중복 제거', unique)
+    print('(1, n) 형태', reshaped.shape)
+    print('최종 형태', reshaped)
+'''
 
 # 5. 다음 배열을 shape (10,)로 만든 뒤 고유값 배열을 구하세요.
 arr = np.array([[[1], [3], [2], [1], [3], [2], [3], [1], [2], [3]]]) # shape (1, 10, 1)
