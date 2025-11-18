@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        background-color: burlywood;
+      }
+      h1 {
+        color: beige;
+        background-color: black;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .orange {
+        background-color: orange;
+        width: 200px;
+        height: 100px;
+      }
+      #yellow {
+        background-color: yellow;
+        width: 300px;
+        height: 100px;
+      }
+      /* 하위 */
+      .orange p {
+        color: red;
+      }
+
+      /* 자식 */
+      .orange > p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>무지개</h1>
+    <div style="background-color: red; width: 100px; height: 100px">red</div>
+    <div class="orange"><p>orange</p></div>
+    <div id="yellow">yellow</div>
+    <div style="background-color: green; width: 400px; height: 100px">
+      green
+    </div>
+    <div style="background-color: blue; width: 500px; height: 100px">blue</div>
+    <div style="background-color: navy; width: 600px; height: 100px">navy</div>
+    <div class="orange"><p>orange</p></div>
+    <div style="background-color: purple; width: 700px; height: 100px">
+      purple
+    </div>
+  </body>
+</html>
