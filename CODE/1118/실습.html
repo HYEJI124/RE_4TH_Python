@@ -4,7 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <!-- 내부 스타일 시트(Internal Style Sheet) -->
+    <!-- 
+          장점: 한 페이지에서 쉽게 관리
+          단점: 여러 페이지에 적용 불가 -->
+    
+    <!-- 외부 스타일 시트 -->
+    <!-- 
+          장점: 한 페이지에서 쉽게 관리
+          단점: 여러 페이지에 적용 불가 -->
+    <link rel="stylesheet" href="02.css" />
     <style>
+      div {
+        color: yellow;
+        font-size: 30px;
+      }
       .red {
         background-color: red;
         width: 100px;
@@ -64,7 +79,28 @@
     </style>
   </head>
   <body>
-    <h1>무지개</h1>
+    <!-- CSS -->
+    <!-- Cascading Style Sheets -->
+    <!-- HTML 요소의 스타일을 정의하는 언어 -->
+    
+    <!-- HTML CSS 
+        구조  디자인
+        내용  스타일
+        뼈대  외관 -->
+
+    <!-- 인라인 스타일 (Inline Style) -->
+    <p style="color: blue; font-size: 20px;">파란색 20px 텍스트</p>
+
+    <!-- 단점 -->
+    <!-- 
+        재사용이 불가
+        유지보수 어려움
+        HTML과 CSS 혼재
+        권장하지 않음 -->
+
+    <div> 노란색 30px 텍스트 </div>
+    
+    <!-- <h1>무지개</h1> -->
     <div class="red">red</div>
     <div class="orange">orange</div>
     <div class="yellow">yellow</div>
@@ -72,5 +108,8 @@
     <div class="blue">blue</div>
     <div class="navy">navy</div>
     <div class="purple">purple</div>
+    <div class="highlight box"> 강조된 텍스트</div>
+    <div id="header">헤더</div>
   </body>
 </html>
+

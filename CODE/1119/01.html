@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 기초 실습</title>
+    <link rel="stylesheet" href="01.css" />
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#intro">소개</a></li>
+            <li><a href="#study">학습 내용</a></li>
+            <li><a href="#tips">CSS 팁</a></li>
+            <li><a href="#reference">참고 사이트</a></li>
+        </ul>
+    </nav>
+
+    <header id="main-header">
+        <h1>나의 첫 css 페이지</h1>
+        <p>HTML 구조 + CSS 스타일 실습</p>
+    </header>
+
+    <main>
+        <article id="intro">
+            <h2>CSS란 무엇인가?</h2>
+            <p>CSS(스타일 시트)는 HTML 문서의 시각적 표현을 담당합니다. 색상, 크기, 간격, 레이아웃 등을 정의할 수 있으며 웹 페이지를 더욱 사용하기 쉽게 만들어 줍니다.</p>
+        </article>
+
+        <section id="study">
+            <h2>학습 내용</h2>
+            <ul>
+                <li>CSS 기본 선택자와 우선순위</li>
+                <li>폰트와 색상 설정</li>
+                <li>마진, 패딩, 박스 모델</li>
+                <li>Flexbox와 Grid 기초</li>   
+            </ul>
+        </section>
+
+        <aside id="tips">
+            <h3>CSS 팁</h3>
+            <ul>
+                <li>class는 여러 번 사용 가능/id는 한 번만 사용 가능</li>
+                <li>box-sizing: border-box 추천</li>
+                <li>flexbox로 정렬 문제 쉽게 해결</li>
+                <li>반응형 디자인을 위해 rem 단위 사용 추천</li>
+            </ul>
+        </aside>
+
+        <section id="reference">
+            <h2>참고하면 좋은 사이트</h2>
+            <p>CSS를 더 깊이 배우고 싶다면 아래 사이트들을 참고하세요.</p>
+            <ul>
+                <li><a href="https://developer.mozilla.org/ko/docs/Web/CSS" target="_blank">MDN Web Docs – CSS</a></li>
+                <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools – CSS 튜토리얼</a></li>
+                <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy 2025 웹사이트</p>
+    </footer>
+</body>
+</html>

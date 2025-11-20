@@ -1,0 +1,183 @@
+/* 프로필 카드 만들기
+1. 카드 크기: 300px x 400px
+2. 둥근 모서리: 10px
+3. 안쪽 여백: 20px 
+4. 테두리: 1px solid #ddd
+5. 그림자 효과
+6. hover 시 살짝 올라가는 효과
+7. 가운데 정렬 */
+
+.card {
+    /* 카드 크기 */
+    width: 300px;
+    height: 400px;
+    /* 안쪽 여백 */
+    padding: 20px;
+    /* 둥근 모서리 */
+    border-radius: 10px;
+    /* 테두리 */
+    border: 1px solid #ddd /* dd dd dd*/;
+    /* 그림자 효과 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    /* 가운데 정렬 */
+    margin: 0 auto;
+
+    z-index: 10;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 백그라운드(background-color) */
+.box {
+    /* background-color: lightblue; */
+    /* background-color: #ddd; */
+    /* background-color: rgb(0, 0, 255); */
+    /* background-color: rgba(0, 0, 255, 0.4); a: 투명도 */
+
+    background-image: url();
+    width: 200px;
+    height: 300px;
+    
+    /* 기본값: 가로 세로 반복 */
+    /* background-repeat: repeat; */
+
+    /* 가로만 반복 */
+    /* background-repeat: repeat-x; */
+
+    /* 세로만 반복 */
+    /* background-repeat: repeat-y; */
+
+    /* 반복 없음 */
+    /* background-repeat: no-repeat; */
+
+    /* 원본 크기 */
+    /* background-size: auto; */
+
+    /* 요소를 꽉 채움(비율 유지) */
+    /* background-size: cover; */
+
+    /* 요소 안에 전체가 보이도록(비율 유지) */
+    /* background-size: contain; */
+
+    /* 고정 크기 */
+    /* background-size: 300px 400px; */
+
+    /* 백분율 */
+    /* background-size: 100% 100%; */
+
+    /* 가운데 */
+    /* background-position: center; */
+
+    /* 오른쪽 위 */
+    /* background-position: top right; */
+
+    /* 백분율 */
+    /* background-position: 40% 0%; */
+
+    /* 픽셀 */
+    /* background-position: 0px 100px; */
+
+    /* 그라데이션 배경 */
+    /* 선형 그라데이션 */
+    /* 오른쪽 */
+    /* background: linear-gradient(to right, red, yellow); */
+
+    /* 아래쪽 */
+    /* background: linear-gradient(to bottom, red, yellow); */
+
+    /* background: linear-gradient(315deg, red, yellow); */
+
+    /* background: radial-gradient(circle, white, blue); */
+}
+
+/* position 속성 */
+/*  */
+
+.pos {
+    width: 100px;
+    height: 100px;
+
+    /* 기본값 */
+    /* 기본 위치, top/left 등 적용 안됨 */
+    /* position: static; */
+
+    /* 상대 위치 */
+    /* 원래 위치를 기준으로 이동 */
+    /* position: relative; */
+    /* 원래 위치에서 아래로 20px */
+    /* top: 20px; */
+    /* 원래 위치에서 오른쪽으로 30px */
+    /* left: 30px; */
+
+    /* 절대 위치 */
+    /* 부모 요소를 기준으로 배치(부모가 releative fixed 일 때) */
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    /* fixed(고정 위치) */
+    /* 뷰포트(화면)를 기준으로 고정 */
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    background-color: navajowhite;
+}
+
+.parent {
+    /* position: relative; */
+    position: sticky;
+    top: 0;
+    width: 400px;
+    height: 400px;
+
+    background-color: black;
+}
+
+/* sticky */
+/* 스크롤에 따라 relative와 fixed 전환 */
+.sticky1 {
+    /* position: sticky; */
+    top: 0;
+
+    width: 300px;
+    height: 200px;
+
+    background-color: aqua;
+}
+
+/* z-index(레이어드) */
+
+.box1 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    z-index: 1;
+}
+
+.box2 {
+    position: relative;
+    top: -20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    z-index: 2;
+
+}
+
+.box3 {
+    position: relative;
+    top: -40px;
+    left: 40px;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    z-index: 1;
+}
+
