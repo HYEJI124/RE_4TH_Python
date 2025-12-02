@@ -1,0 +1,50 @@
+<!-- 과제 1. 랜덤 성공/실패 Promise -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   const randomPromise = new Promise((resolve, reject) => {
+      //     const success = Math.random() < 0.5;
+
+      //     setTimeout(() => {
+      //       if (success) {
+      //         resolve("성공!");
+      //       } else {
+      //         reject("실패!");
+      //       }
+      //     }, 1000);
+      //   });
+
+      //   randomPromise
+      //     .then((result) => {
+      //       console.log(result);
+      //     })
+      //     .catch((error) => {
+      //       console.error(error);
+      //     });
+
+      function randomPromise() {
+        return new Promise((resolve, reject) => {
+          if (Math.random() > 0.5) {
+            resolve("성공");
+          } else {
+            reject(new Error("실패"));
+          }
+        });
+      }
+
+      randomPromise()
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    </script>
+  </body>
+</html>

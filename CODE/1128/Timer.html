@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>시계</h1>
+    <div id="clock">00:00:00</div>
+
+    <h1>스톱워치</h1>
+    <div id="display">00:00:00</div>
+    <button id="startBtn">시작</button>
+    <button id="stopBtn">정지</button>
+    <button id="resetBtn">초기화</button>
+
+    <h1>알람</h1>
+    <input type="time" id="alarmTime" />
+    <button id="setAlamBtn">알람 설정</button>
+    <div id="alarmStatus">알람 없음</div>
+
+    <audio id="alarmSound">
+      <source
+        src="https://actions.google.com/SOUNDs/v1/alarms/alarm_clock.ogg"
+        type="audio/ogg"
+      />
+    </audio>
+
+    <script>
+      let startTime = 0; // 시작된 시점
+      let elapsedTime = 0; //경과된 시간
+      let intervalId = null; // 인터벌 아이디
+      let isRunning = false; // 실행 중
+
+      const display = document.querySelector("#display");
+      const startBtn = document.querySelector("#startBtn");
+      const stopBtn = document.querySelector("#stopBtn");
+      const resetBtn = document.querySelector("#resetBtn");
+
+      const updateDisplay = () => {
+        const currentTime = Date.now();
+        elapsedTime = currentTime - startTime;
+
+        const totalSeconds = Math.floor(elapsedTime / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        const milliseconds = Math.floor((elapsedTime % 1000) / 10);
+
+        display.textContent =
+          `${String(minutes).padStart(2, "0")}:` +
+          `${String(seconds).padStart(2, "0")}:` +
+          `${String(milliseconds).padStart(2, "0")}:`;
+      };
+
+      startBtn.addEventListener("click", () => {
+        if (!isRunning) {
+          startTime = Date.now() - elapsedTime; // 11:10:10 - 0
+          intervalId = setInterval(updateDisplay, 10);
+          isRunning = true;
+        }
+      });
+
+      stopBtn.addEventListener("click", () => {
+        if (isRunning) {
+          clearInterval(intervalId);
+          isRunning = false;
+        }
+      });
+
+      resetBtn.addEventListener("click", () => {
+        clearInterval(intervalId);
+        elapsedTime = 0;
+        isRunning = false;
+        display.textContent = "00:00:00";
+      });
+    </script>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0"); // 시
+        const minutes = String(now.getMinutes()).padStart(2, "0"); // 분
+        const seconds = String(now.getSeconds()).padStart(2, "0"); // 초
+
+        const clock = document.querySelector("#clock");
+        clock.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+      // 즉시 실행
+      updateClock();
+
+      setInterval(updateClock, 1000);
+    </script>
+
+    <script>
+      const alarmTimeInput = document.querySelector("#alarmTime");
+      const setAlamBtn = document.querySelector("#setAlamBtn");
+      const alarmStatus = document.querySelector("#alarmStatus");
+      const alarmSound = document.querySelector("#alarmSound");
+
+      let alarmTime = null;
+      let alarmInterval = null;
+
+      setAlarmBtn.addEventListener("click", () => {
+        alarmTime = alarmTimeInput.value; // "HH:MM"
+        if (alarmTime) {
+          alarmStatus.textContent = `알람 설정됨: ${alarmTime}`;
+        }
+      });
+
+      function checkAlarm() {
+        const now = new Date();
+        const currentTime =
+          String(now.getHours()).padStart(2, "0") +
+          ":" +
+          String(now.getMinutes()).padStart(2, "0");
+
+        if (alarmTime && currentTime === alarmTime) {
+          alarmSound.play();
+          alarmStatus.textContent = "⏰ 알람 울림!";
+          alarmTime = null; // 알람 1회성
+        }
+      }
+
+      setInterval(checkAlarm, 1000);
+    </script>
+  </body>
+</html>

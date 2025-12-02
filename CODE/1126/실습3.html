@@ -1,0 +1,37 @@
+<!-- 과제 3: 클릭 카운터, 키보드 이벤트 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>클릭 카운터</h2>
+    <button id="clickBtn">클릭</button>
+    <div id="clickCount">클릭 횟수:</div>
+
+    <h3>키보드 이벤트</h3>
+    <input type="text" id="keyInput" placeholder="입력하세요" />
+    <div id="keyResult">입력한 텍스트:</div>
+
+    <script>
+      const btn = document.querySelector("#clickBtn");
+      const clickCount = document.querySelector("#clickCount");
+
+      const input = document.querySelector("#keyInput");
+      const keyResult = document.querySelector("#keyResult");
+
+      let count = 0;
+
+      btn.addEventListener("click", () => {
+        count++;
+        clickCount.textContent = `클릭 횟수: ${count}`;
+      });
+
+      input.addEventListener("input", () => {
+        keyResult.textContent = `입력한 텍스트: ${input.value}`;
+      });
+    </script>
+  </body>
+</html>

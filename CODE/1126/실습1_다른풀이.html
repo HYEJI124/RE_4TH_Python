@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../../../data/test.jpeg" alt="" id="gallery">
+
+    <br>
+    <button onclick="changeImage()">이미지 변경</button>
+
+    <script>
+        function changeImage() {
+            let img = document.querySelector('#gallery');
+            img.src = '../../../data/images.png';
+        }
+    </script>
+</body>
+</html>

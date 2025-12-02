@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="highlight">첫 번째</p>
+    <p>두 번째</p>
+    <p class="highlight">세 번째</p>
+
+    <div class="container">
+      <ul>
+        <li>항목 1</li>
+        <li>항목 2</li>
+        <li>항목 3</li>
+      </ul>
+    </div>
+    <script>
+      // 과제 1. 요소 개수 세기
+
+      // 1. 모든 <p> 태그 개수
+      const p_tag = document.querySelectorAll("p").length;
+      console.log("p 태그 개수:", p_tag);
+
+      //   리더님
+      //   console.log(document.querySelectorAll('p').length);
+
+      // 2. highlight 클래스를 가진 요소 개수
+      const highlight = document.querySelectorAll(".highlight").length;
+      console.log("highlight 클래스 개수", highlight);
+
+      //   리더님
+      //   console.log(document.querySelectorAll('.highlight').length);
+
+      // 3. 세 번째 <p>의 텍스트
+      const text3 = document.querySelectorAll("p")[2].textContent;
+      console.log("세 번째 p 텍스트:", text3);
+
+      //   리더님
+      //   console.log(document.querySelector('p').textContent);
+
+      // 과제 2. 중첩 선택
+
+      // 1. .container 안의 모든 <li> 선택
+      const all = document.querySelectorAll(".container li");
+      console.log(all);
+
+      //   리더님
+      // console.log(document.querySelectorAll('.container li'));
+
+      // 2. 두 번째 <li> 선택
+      const second = document.querySelectorAll(".container li")[1];
+      console.log(second);
+
+      //   리더님
+      //   console.log(document.querySelector('.container li:nth-child(2)'));
+
+      // 3. 마지막 <li> 선택
+      const last = document.querySelector(".container li:last-child");
+      console.log(last);
+
+      //   리더님
+      //   console.log(document.querySelector('.container li:nth-child(3)'));
+      //   console.log(document.querySelector('.container li:last-child'));
+    </script>
+  </body>
+</html>

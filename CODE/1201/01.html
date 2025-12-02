@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="01.css" />
+  </head>
+  <body>
+    <div>
+      <h1>날씨 앱</h1>
+
+      <!-- 검색 -->
+      <div>
+        <input
+          type="text"
+          placeholder="도시 이름을 입력하세요 (예 Seoul, Tokyo)"
+        />
+        <button>검색</button>
+      </div>
+
+      <!-- 로딩 표시 (선택사항)-->
+      <div>
+        <div></div>
+        <p>날씨 정보를 불러오는 중...</p>
+      </div>
+
+      <!-- 에러 메시지 (선택사항) -->
+      <div></div>
+
+      <!-- 날씨 정보 -->
+      <div>
+        <!-- 현재 날씨 -->
+        <div>
+          <!-- 지역 -->
+          <div>
+            <h2>도시 이름</h2>
+            <p>지역 이름</p>
+          </div>
+        </div>
+        <!-- 날씨 -->
+        <div>
+          <!-- 아이콘 -->
+          <img src="https://openweathermap.org/img/wn/$'04n'@2x.png" alt="" />
+          <!-- 온도 -->
+          <div></div>
+        </div>
+
+        <!-- 체감 온도, 습도 , 풍속, 기압 -->
+        <div>
+          <!-- 체감 온도 -->
+          <div>
+            <span></span>
+            <span></span> °C
+          </div>
+
+          <!-- 습도 -->
+          <div>
+            <span></span>
+            <span></span> %
+          </div>
+
+          <!-- 풍속 -->
+          <div>
+            <span></span>
+            <span></span> m/s
+          </div>
+
+          <!-- 기압 -->
+          <div>
+            <span></span>
+            <span></span> hPa
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="01.js"></script>
+  </body>
+</html>

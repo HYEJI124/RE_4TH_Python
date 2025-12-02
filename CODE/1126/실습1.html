@@ -1,0 +1,30 @@
+<!-- 과제 1: 이미지 갤러리 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>이미지 갤러리</h2>
+    <img src="../../../data/test.jpeg" alt="새 이미지" id="gallery">
+    
+    <button onclick="changeImage()">이미지</button>
+
+    <script>
+        const image = ['../../../data/images.png']
+
+        function changeImage() {
+            const img = document.getElementById('gallery');
+            img.src = image;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Promise -->
+    <!-- Promise는 비동기 작업의 최종 완료 또는 실패를 나타내는 객체 -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <script>
+      //   getData(function (a) {
+      //     getMoreData(a, function (b) {
+      //       getMoreData(b, function (c) {
+      //         // 끝없이 중첩..
+      //       });
+      //     });
+      //   });
+
+      //   // Promise로 해결
+      //   getData()
+      //     .then((a) => getMoreData(a))
+      //     .then((b) => getMoreData(b))
+      //     .then((c) => getMoreData(c));
+
+      // Promise 생성
+      //   const promise = new Promise((resolve, reject) => {
+      //     // 비동기 작업
+
+      //     if (성공) {
+      //         resolve(결과);
+      //     } else {
+      //         reject(에러);
+      //     }
+      //   });
+
+      const successPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("데이터를 성공적으로 가져왔습니다.");
+        }, 1000);
+      });
+
+      successPromise.then((result) => {
+        console.log(result);
+      });
+
+      const failPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("데이터 로드 실패!!!");
+        }, 1000);
+      });
+
+      failPromise.then((result) => {
+        console.log(result);
+      });
+
+      // .then() 성공 처리
+      // promise.then(successCallBack, failureCallBack)
+
+      // 보통 성공만 처리
+      //   promise.then((result) => {
+      //     console.log(result);
+      //   });
+
+      // .catch() - 실패 처리
+      // promise.catch(error => {console.log(error);});
+
+      const fetchData = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(new Error("에러 발생!!!"));
+        }, 1000);
+      });
+
+      fetchData
+        .then((data) => {
+          console.log("성공했을까요???");
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log("에러 발생:::", error.message);
+        })
+        .finally(() => {
+          console.log("무조건 실행");
+        });
+
+      // Promise 체이닝
+
+      Promise.resolve(10)
+        .then((num) => {
+          console.log(num);
+          return num * 2;
+        })
+        .then((num) => {
+          console.log(num);
+          return num + 5;
+        })
+        .then((num) => {
+          console.log(num);
+        });
+
+      // Promise 정적 메서드
+      // Promise.all() - 모두 성공
+      Promise.all([promise1, promise2, promise3])
+        .then((result) => {
+          console.log(results); // [결과 1, 결과 2, 결과 3]
+        })
+        .catch((error) => {
+          console.error("하나라도 실패하면 실패!");
+        });
+
+      const fetchUser = Promise.resolve({ id: 1, name: "홍길동" });
+      const fetchPost = Promise.resolve({ title: "제목" });
+      const fetchComments = Promise.resolve({ text: "댓글" });
+
+      Promise.all([fetchUser, fetchPost, fetchComments])
+        .then((result) => {
+          console.log(results); // [결과 1, 결과 2, 결과 3]
+        })
+        .catch((error) => {
+          console.error("하나라도 실패하면 실패");
+        });
+
+      // 가장 빠른 것
+      // 가장 먼저 완료되는 Promise의 결과 반환
+      Promise.race;
+
+      // 모두 완료 대기
+      // 성공/실패 여부와 관계없이 모두 완료되면 결과 반환
+      Promise.allSettled;
+    </script>
+  </body>
+</html>
