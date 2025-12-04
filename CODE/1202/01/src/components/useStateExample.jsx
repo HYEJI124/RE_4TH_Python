@@ -1,19 +1,39 @@
 import { useState } from "react";
 
 function UseStateExample() {
-  //   let count = 0;
   const [count, setCount] = useState(0);
 
   const increase = () => {
-    // count = count + 1;
-    setCount((pre) => pre + 1);
-    console.log(count);
+    setCount((prev) => prev + 1);
+  };
+
+  const decrease = () => {
+    setCount((prev) => prev - 1); // 감소
+  };
+
+  const reset = () => {
+    setCount(0); // 초기화
+  };
+
+  const double = () => {
+    setCount((prev) => prev * 2); // 2배
   };
 
   return (
     <div>
       <p>{count}</p>
+
+      {/* 증가 */}
       <button onClick={increase}>증가</button>
+
+      {/* 감소 */}
+      <button onClick={decrease}>감소</button>
+
+      {/* 초기화 */}
+      <button onClick={reset}>초기화</button>
+
+      {/* 2배 */}
+      <button onClick={double}>2배 증가</button>
     </div>
   );
 }

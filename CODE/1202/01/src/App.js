@@ -10,7 +10,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import UseStateExample from "./components/useStateExample";
+import Greeting from "./components/Greeting";
 import { useState } from "react";
+
 
 function App() {
   const title = "첫 React 앱";
@@ -44,6 +46,7 @@ function App() {
 
       <Profile />
       <UseStateExample />
+      <Greeting />
       <br />
       <br />
       <br />
